@@ -44,7 +44,7 @@ R with the packages `data.table`, `limma`, `ggplot2`, `ggrepel`, `readxl`, and `
 Primary analysis:
 
 - `M_values_cprop_metadata.csv`: M-values, cell proportions, and covariates
-- `airpollution_CpGs.csv`: list of candidate CpG IDs
+- `CVD_906_CpGs.csv`: curated list of 609 candidate CpG IDs associated with Life's Essential 8 cardiovascular health (column `IlmnID`)
 
 Secondary analysis:
 
