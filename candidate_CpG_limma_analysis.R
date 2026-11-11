@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 # ============================================================
-# TARGETED AIR-POLLUTION CpG ANALYSIS
+# TARGETED CARDIOVASCULAR HEALTH (LIFE'S ESSENTIAL 8) CpG ANALYSIS
 # High vs Low PNC Exposure
 #
 # MODEL 1: Adjusted
@@ -12,8 +12,8 @@
 #
 # BOTH models use the SAME analytic sample.
 #
-# Analysis is restricted to air-pollution CpGs in:
-# airpollution_CpGs.csv
+# Analysis is restricted to CpGs associated with Life's Essential 8 cardiovascular health in:
+# CVD_906_CpGs.csv
 # ============================================================
 
 
@@ -34,7 +34,7 @@ suppressPackageStartupMessages({
 # ============================================================
 
 in_file <- "M_values_cprop_metadata.csv"
-candidate_file <- "airpollution_CpGs.csv"
+candidate_file <- "CVD_906_CpGs.csv"
 
 # Exposure
 expo_var <- "pnc_exposure"
@@ -58,7 +58,7 @@ cell_candidates <- c(
 )
 
 # Output prefix
-out_prefix <- "HighLow_AirPollutionCpGs"
+out_prefix <- "HighLow_CVD_CpGs"
 
 
 # ============================================================
@@ -291,7 +291,7 @@ make_volcano <- function(
     labs(
       title = paste0(
         model_name,
-        ": Air-pollution CpGs"
+        ": CVD CpGs"
       ),
       
       subtitle = paste0(
@@ -352,7 +352,7 @@ make_volcano <- function(
 
 message("")
 message("==============================================")
-message("TARGETED AIR-POLLUTION CpG ANALYSIS")
+message("TARGETED CARDIOVASCULAR HEALTH (LIFE'S ESSENTIAL 8) CpG ANALYSIS")
 message("==============================================")
 
 
@@ -462,7 +462,7 @@ cand_ids <- unique(
 
 
 message(
-  "Unique air-pollution CpGs in candidate file: ",
+  "Unique CVD CpGs in candidate file: ",
   length(cand_ids)
 )
 
@@ -478,7 +478,7 @@ cpg_cols <- intersect(
 
 
 message(
-  "Air-pollution CpGs found in methylation matrix: ",
+  "CVD CpGs found in methylation matrix: ",
   length(cpg_cols),
   " / ",
   length(cand_ids)
@@ -488,7 +488,7 @@ message(
 if (length(cpg_cols) == 0) {
   
   stop(
-    "No air-pollution CpGs were found in the methylation matrix."
+    "No CVD CpGs were found in the methylation matrix."
   )
   
 }
@@ -505,7 +505,7 @@ missing_cpgs <- setdiff(
 
 
 message(
-  "Air-pollution CpGs missing from matrix: ",
+  "CVD CpGs missing from matrix: ",
   length(missing_cpgs)
 )
 
@@ -742,7 +742,7 @@ Mmat <- t(
 
 
 message(
-  "Air-pollution CpGs before M-value filtering: ",
+  "CVD CpGs before M-value filtering: ",
   nrow(Mmat)
 )
 
@@ -778,7 +778,7 @@ if (!all(finite_cpg)) {
 
 
 message(
-  "FINAL air-pollution CpGs entering BOTH models: ",
+  "FINAL CVD CpGs entering BOTH models: ",
   nrow(Mmat)
 )
 
@@ -1396,7 +1396,7 @@ sink(
 
 
 cat(
-  "TARGETED AIR-POLLUTION CpG ANALYSIS\n"
+  "TARGETED CARDIOVASCULAR HEALTH (LIFE'S ESSENTIAL 8) CpG ANALYSIS\n"
 )
 
 
@@ -1414,7 +1414,7 @@ cat(
 
 
 cat(
-  "Air-pollution CpGs in candidate list: ",
+  "CVD CpGs in candidate list: ",
   length(cand_ids),
   "\n",
   sep = ""
@@ -1422,7 +1422,7 @@ cat(
 
 
 cat(
-  "Air-pollution CpGs found in methylation matrix: ",
+  "CVD CpGs found in methylation matrix: ",
   length(cpg_cols),
   "\n",
   sep = ""
@@ -1430,7 +1430,7 @@ cat(
 
 
 cat(
-  "Air-pollution CpGs entering models: ",
+  "CVD CpGs entering models: ",
   nrow(Mmat),
   "\n",
   sep = ""
@@ -1598,7 +1598,7 @@ message(
 
 
 message(
-  "Air-pollution CpGs tested: ",
+  "CVD CpGs tested: ",
   nrow(Mmat)
 )
 
